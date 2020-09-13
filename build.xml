@@ -23,7 +23,7 @@ cmdcolors/cmdcolors /usr/bin
 netread/netread.jar /usr/share/java
 netread/netread /usr/bin
 version_change/version_change.jar /usr/share/java
-version_change/version_chnage /usr/bin
+version_change/version_change /usr/bin
 visual_copy/vcp.jar /usr/share/java
 visual_copy/vcp /usr/bin
 xmlparser/xmlparser.jar /usr/share/java
