@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build">
+
+<!-- APPLICATION METADATA -->
+<property name="mdpc.name"      value="mdvl-java-nostalgic-tools"/>
+<property name="mdpc.section"   value="java"/>
+<property name="mdpc.descrs"    value="Legacy but potentially useful tools"/>
+<property name="mdpc.arch"      value="all"/>
+<property name="mdpc.depends"   value="default-jre"/>
+<property name="mdpc.conflicts" value="mdvl-java-applications"/>
+<property name="mdpc.descrl">
+ Ma_Sys.ma nostalgic tools include:
+ cmdcolors      -- Display color capabilities of the console -- max 16 colors!
+ netread        -- Listen to data incoming on sockets and display it in hex.
+ version_change -- Calculate checksums of a directory and detect changes.
+ visual_copy    -- Copy data while displaying many progress bars -- do not use!
+ xmlparser      -- Parse XML file by means of the Java SE API.
+</property>
+
+<property name="mdpc.file.install">
+cmdcolors/cmdcolors.jar /usr/share/java
+cmdcolors/cmdcolors /usr/bin
+netread/netread.jar /usr/share/java
+netread/netread /usr/bin
+version_change/version_change.jar /usr/share/java
+version_change/version_chnage /usr/bin
+visual_copy/vcp.jar /usr/share/java
+visual_copy/vcp /usr/bin
+xmlparser/xmlparser.jar /usr/share/java
+xmlparser/xmlparser /usr/bin
+</property>
+
+<!-- CI INTEGRATION -->
+<target name="package_triggered" depends="package">
+	<property name="masysma.ci.trigger" value="newver"/>
+</target>
+
+<!-- CONSTANT TPL IMPORT -->
+<property environment="env"/>
+<condition property="masysma.internal.includepath.rel" value="${env.MDVL_CI_PHOENIX_ROOT}" else=".."><isset property="env.MDVL_CI_PHOENIX_ROOT"/></condition>
+<property name="masysma.internal.includepath" location="${masysma.internal.includepath.rel}"/>
+<property name="masysma.internal.loadpath" value="${masysma.internal.includepath}/co-build/ant-build-template.xml"/>
+<condition property="masysma.internal.load" value="file://${masysma.internal.loadpath}" else="https://raw.githubusercontent.com/m7a/co-build/master/ant-build-template.xml"><resourceexists><file file="${masysma.internal.loadpath}"/></resourceexists></condition>
+<import><url url="${masysma.internal.load}"/></import>
+
+</project>

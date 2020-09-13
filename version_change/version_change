@@ -1,0 +1,2 @@
+#!/bin/sh -eu
+exec java -jar /usr/share/java/version_change.jar "$@"
