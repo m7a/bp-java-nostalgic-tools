@@ -1,6 +1,11 @@
 import java.io.*;
 
 // This is something like the Unix "find" command, annotated 22.06.2012 20:26
+
+// Note: Recursive java functions for recursive directory scanning are the
+//       old-fashioned and error-prone way of doing it. As of 2020, you should
+//       really use java.nio.file.Files.walkFileTree()!
+
 public class Structure {
 
 	public static void main(String[] args) {

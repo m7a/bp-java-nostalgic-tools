@@ -1,2 +1,2 @@
 #!/bin/sh -eu
-exec java -jar /usr/share/java/net_read.jar "$@"
+exec java -jar /usr/share/java/netread.jar "$@"

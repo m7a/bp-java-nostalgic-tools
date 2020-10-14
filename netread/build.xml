@@ -5,6 +5,9 @@
 <property name="masysma.target" value="netread"/> 
 <property name="masysma.main"   value="NetRead"/> 
 
+<property name="ant.build.javac.source" value="1.7"/>
+<property name="ant.build.javac.target" value="1.7"/>
+
 <!-- CONSTANT TPL IMPORT -->
 <property environment="env"/>
 <condition property="masysma.internal.includepath.rel" value="${env.MDVL_CI_PHOENIX_ROOT}" else="../.."><isset property="env.MDVL_CI_PHOENIX_ROOT"/></condition>
