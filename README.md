@@ -50,6 +50,8 @@ cmdcolors
 Outputs a table with certain useful ANSI escape sequence colors. Does not
 display all possible combinations but some that are considered most useful.
 
+![`cmdcolors` screenshot](java-nostalgic-tools_att/cmdcolors.png)
+
 ## See also
 
 [colortest-16b(1)](https://manpages.debian.org/buster/colortest/colortest-16b.1.en.html) -- does the same thing but better in all regards: The output is less
@@ -153,14 +155,79 @@ If `cut` and `paste` are added to swap the columns in the `state_` files, it
 behaves even more like `version_chnage` in that it will become possible to
 detect the difference between changed and added/deleted files.
 
-_TODO TEST AND DESCRIBE?_
-
 visual_copy
 ===========
 
-_TODO_
+## Name
+
+`vcp` -- Copy directory trees while displaying a lot of progress info
+
+## Synopsis
+
+	vcp SRC DST
+
+## Description
+
+Copies directory `SRC` to `DST`. Two modes of invocation are to be
+distinguished:
+
+ * If `SRC` ends on a trailing slash (e.g. `/root/`), then its contents are
+   put directly below `DST`.
+ * If `SRC` does not end on a trailing slash (e.g. `/root`), then a directory
+   with the same name as `SRC` is created below `DST` and data is copied
+   like with `cp -R SRC DST`.
+
+During Invocation, `vcp` displays a lot of progress information. Some of the
+ideas (speed diagram) have been taken up by Windows 10's copy function while
+others (progress bars separate for number of files and data) are quite
+uncommon.
+
+Visual Copy does not retain any file attributes nor modification times.
+
+![Visual COpy screenshot](java-nostalgic-tools_att/vcp.png)
+
+## Exit Status
+
+--  ----------------------------------------------------------------
+1   failed to list some directories or incorrect commandline options
+2   failed to copy some files
+64  Bug
+--  ----------------------------------------------------------------
+
+## See also
+
+[rsync(1)](https://manpages.debian.org/buster/rsync/rsync.1.en.html) --
+does everything better except for the progress bars.
+
+	# Command to replace
+	vcp /root/ /tmp/test
+
+	# Very reliable, works efficiently over netcat to transfer large
+	# structures. No resumption upon interruption.
+	tar -C /root -c . | pv | tar -C /tmp/test -x
+
+	# Slightly slower (?) than tar, but allows resuming the transfer
+	# and displays the names of the files as transferred
+	rsync -av /root/ /tmp/test/
 
 xmlparser
 =========
 
-_TODO_
+## Name
+
+`xmlparser` -- Commandline tool to parse XML files with Java
+
+## Synopsis
+
+	xmlparser FILE
+
+## Description
+
+This program attempts to parse the given XML file using a `SAXParser` that is
+validating and XInclude aware. In case of invalid files, the exception is
+printed to console, otherwise no output is shown.
+
+## See also
+
+[xmlstarlet(1)](https://manpages.debian.org/buster/xmlstarlet/xmlstarlet.1.en.html)
+which can provide a similar use with `xmlstarlet validate`.
