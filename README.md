@@ -184,7 +184,7 @@ uncommon.
 
 Visual Copy does not retain any file attributes nor modification times.
 
-![Visual COpy screenshot](java-nostalgic-tools_att/vcp.png)
+![Visual Copy screenshot](java-nostalgic-tools_att/vcp.png)
 
 ## Exit Status
 
