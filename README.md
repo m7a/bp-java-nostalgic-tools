@@ -8,7 +8,7 @@ author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["mdvl", "package", "java", "legacy"]
 x-masysma-version: 1.0.0
 x-masysma-repository: https://www.github.com/m7a/bp-java-nostalgic-tools
-x-masysma-website: https://masysma.lima-city.de/32/java-nostalgic-tools.xhtml
+x-masysma-website: https://masysma.net/32/java-nostalgic-tools.xhtml
 x-masysma-owned: 1
 x-masysma-copyright: |
   Copyright (c) 2020 Ma_Sys.ma.
